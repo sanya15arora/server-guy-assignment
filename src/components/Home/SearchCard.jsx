@@ -98,10 +98,10 @@ const SearchCard = ({ searchData }) => {
                 </StoryData>
                 <StoryMeta>
                     <MetaText>
-                        {searchData?.points} points |
+                        <Link to={`/item?id=${searchData?.story_id}`}> {searchData?.points} points </Link>|
                         {" "} <Link to={`/user?id=${searchData?.author}`}>{searchData?.author}</Link> |
-                        {" "}  {dateTimeAgo} |
-                        {" "}  {searchData?.num_comments} comments
+                        {" "}  <Link to={`/item?id=${searchData?.story_id}`}> {dateTimeAgo} </Link>|
+                        {" "}  <Link to={`/item?id=${searchData?.story_id}`}>{searchData?.num_comments} comments </Link>
                     </MetaText>
                 </StoryMeta>
                 {

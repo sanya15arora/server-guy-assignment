@@ -19,30 +19,15 @@ const theme = createTheme({
     },
     typography: {
         fontFamily: 'Verdana, Geneva, sans-serif',
-        h1: {
-            fontSize: '2.5rem',
-            fontWeight: 500,
-        },
-        body1: {
-            fontSize: '1rem',
-        },
     },
     components: {
-        MuiButton: {
-            styleOverrides: {
-                root: {
-                    textTransform: 'none', // Prevent automatic uppercase
-                    borderRadius: '8px',
-                },
-            },
-        },
         MuiTextField: {
             defaultProps: {
                 variant: 'outlined',
             },
         },
     },
-    spacing: 8, // Base spacing unit
+    spacing: 8,
     shape: {
         borderRadius: 4,
     },
