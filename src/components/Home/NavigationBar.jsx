@@ -107,7 +107,7 @@ const NavigationBar = () => {
     return (
         <AppBar position="static" color="primary">
             <Toolbar>
-                <Logo src='public/logo.png' alt='logo' />
+                <Logo src='logo.png' alt='logo' />
                 <CustomUserName>
                     {localStorage?.getItem('user') ? JSON.parse(localStorage?.getItem('user'))?.username : "Search Hacker News"}
                 </CustomUserName>

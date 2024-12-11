@@ -104,7 +104,7 @@ const SearchList = () => {
                     <SelectSortBy />
                     <SelectDate getNumericFilterValue={getNumericFilterValue} />
                 </CustomFlex >
-                <ResultCount>{data?.nbHits} results ({data?.processingTimeMS / 1000}) seconds</ResultCount>
+                {data?.nbHits && data?.processingTimeMS && <ResultCount>{data?.nbHits} results ({data?.processingTimeMS / 1000}) seconds</ResultCount>}
             </CustomFlex>
             {loading && <Box> Loading...</Box>
             }
