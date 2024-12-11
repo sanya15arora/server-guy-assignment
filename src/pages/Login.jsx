@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import { Avatar, Button, Container, Paper, TextField, Typography, Box, Alert } from '@mui/material'
-import { LockOutlined } from '@mui/icons-material'
+import { Avatar, Button, Container, Paper, TextField, Typography, Box, Alert, InputAdornment, IconButton } from '@mui/material'
+import { LockOutlined, Visibility, VisibilityOff } from '@mui/icons-material'
 import { styled } from "@mui/material/styles";
 import { useDispatch, useSelector } from 'react-redux';
 import { loginUser } from '../store/UserSlice';
@@ -21,6 +21,11 @@ const Login = () => {
     const [showHome, setShowHome] = useState(false);
     const dispatch = useDispatch();
     const { loading, error } = useSelector((state) => state.user)
+    const [showPassword, setShowPassword] = useState(false);
+
+    const handleClickShowPassword = () => {
+        setShowPassword(prev => !prev);
+    }
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -63,9 +68,23 @@ const Login = () => {
                             fullWidth
                             required
                             autoFocus
+                            type={showPassword ? 'text' : 'password'}
                             sx={{ mb: 2 }}
                             value={password}
-                            onChange={(e) => setPassword(e.target.value)} />
+                            onChange={(e) => setPassword(e.target.value)}
+                            slotProps={{
+                                input: {
+                                    endAdornment: (
+                                        <InputAdornment position="end">
+                                            <IconButton
+                                                onClick={handleClickShowPassword}
+                                            >
+                                                {showPassword ? <Visibility /> : <VisibilityOff />}
+                                            </IconButton>
+                                        </InputAdornment>)
+                                }
+                            }}
+                        />
                         <Button type='submit'
                             variant='contained'
                             fullWidth
