@@ -77,24 +77,22 @@ const SearchCard = ({ searchData }) => {
         return (
             <StoryWrappeer>
                 <StoryData>
-                    <Link to={`/item?id=${searchData?.story_id}`}>
-                        <StoryTitle>
+                    <StoryTitle>
+                        <Link to={`/item?id=${searchData?.story_id}`}>
                             {searchData?.title || searchData?.story_title}
-                        </StoryTitle>
-                    </Link>
-                    {(searchData?.url || searchData?.story_url) &&
+                        </Link>
+                    </StoryTitle>
+
+                    {(searchData?.url || searchData?.story_url) && (
                         <StoryLink>
-                            <Link href={searchData?.url ? searchData?.url : searchData?.story_url}
+                            <a href={searchData?.url || searchData?.story_url}
                                 target="_blank"
-                                sx={{
-                                    textDecoration: 'none',
-                                    '&:hover': {
-                                        textDecoration: 'underline',
-                                    }
-                                }}>
-                                ({searchData?.url || searchData?.story_url})
-                            </Link>
-                        </StoryLink>}
+                                underline="hover"
+                            >
+                                {searchData?.url || searchData?.story_url}
+                            </a>
+                        </StoryLink>
+                    )}
                 </StoryData>
                 <StoryMeta>
                     <MetaText>

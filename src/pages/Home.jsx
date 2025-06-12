@@ -25,7 +25,7 @@ const Home = () => {
                 maxWidth: {
                     xs: '100%',
                     sm: '90%',
-                    md: '80%',
+                    md: '90%',
                 }
             }}>
                 <NavigationBar />
